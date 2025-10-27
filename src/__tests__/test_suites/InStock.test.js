@@ -11,7 +11,10 @@ describe('3rd Deliverable', () => {
 
     // Get all plant items
     const plantItems = await findAllByTestId('plant-item');
-    expect(plantItems).toHaveLength(basePlants.length);
+    expect(plantItems).toHaveLength(global.basePlants.length);
+
+    // Mock the PATCH response
+    global.setFetchResponse({...global.basePlants[0], inStock: false});
 
     // Select the first plant item
     const firstPlantItem = plantItems[0];
